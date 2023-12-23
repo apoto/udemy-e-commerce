@@ -51,10 +51,14 @@ class ProductsTable extends Table
 
         $this->belongsTo('Categories', [
             'foreignKey' => 'category_id',
-            'joinType' => 'INNER',
         ]);
-        $this->hasMany('CharacteristicsValuesProducts', [
+        // $this->hasMany('CharacteristicsValuesProducts', [
+        //     'foreignKey' => 'product_id',
+        // ]);
+        $this->belongsToMany('CharacteristicsValues', [
             'foreignKey' => 'product_id',
+            'targetForeignKey' => 'characteristic_value_id',
+            'joinTable' => 'characteristic_values_products',
         ]);
         $this->hasMany('Photos', [
             'foreignKey' => 'product_id',

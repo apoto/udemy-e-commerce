@@ -46,11 +46,9 @@ class CharacteristicsValuesProductsTable extends Table
 
         $this->belongsTo('CharacteristicValues', [
             'foreignKey' => 'characteristic_value_id',
-            'joinType' => 'INNER',
         ]);
         $this->belongsTo('Products', [
             'foreignKey' => 'product_id',
-            'joinType' => 'INNER',
         ]);
     }
 

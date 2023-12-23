@@ -50,7 +50,6 @@ class CharacteristicValuesTable extends Table
 
         $this->belongsTo('Characteristics', [
             'foreignKey' => 'characteristic_id',
-            'joinType' => 'INNER',
         ]);
         $this->hasMany('CharacteristicsValuesProducts', [
             'foreignKey' => 'characteristic_value_id',
