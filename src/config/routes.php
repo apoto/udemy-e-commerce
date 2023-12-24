@@ -23,6 +23,7 @@
 
 use Cake\Routing\Route\DashedRoute;
 use Cake\Routing\RouteBuilder;
+use Cake\Routing\Router;
 
 /*
  * This file is loaded in the context of the `Application` class.
@@ -93,4 +94,10 @@ return function (RouteBuilder $routes): void {
      * });
      * ```
      */
-};
+
+    Router::prefix('Admin', function(RouteBuilder $builder) {
+        $builder->connect('/', ['prefix' => 'admin', 'controller' => 'Pages', 'action' => 'index']);
+        $builder->fallbacks(DashedRoute::class);
+    });
+
+    };
