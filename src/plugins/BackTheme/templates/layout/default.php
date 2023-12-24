@@ -20,33 +20,30 @@
 </head>
 
 <body id="page-top">
-		<div id="wrapper">
+	<div id="wrapper">
 
-				<!-- Menu -->
-				<?= $this->Element('BackTheme.layout/menu'); ?>
+		<!-- Menu -->
+		<?= $this->Element('BackTheme.layout/menu'); ?>
 
-				<div id="content-wrapper" class="d-flex flex-column">
-						<div id="content">
-								<!-- Topbar -->
-								<?= $this->Element('BackTheme.layout/topbar'); ?>
-
-								<div class="container-fluid">
-									<?= $this->fetch('content'); ?>
-								</div>
-						</div>
-
-					<!-- Footer -->
-					<?= $this->Element('BackTheme.layout/footer'); ?>
-				
+		<div id="content-wrapper" class="d-flex flex-column">
+			<div id="content">
+				<div class="container-fluid">
+					<?= $this->fetch('content'); ?>
 				</div>
-		</div>
+			</div>
 
-		<!-- Scripts -->
-		<?= $this->Html->script([
-			'BackTheme./js/jquery.min',
-			'BackTheme./js/bootstrap.bundle.min',
-			'BackTheme./js/jquery.easing.min.min',
-			'BackTheme./js/sb-admin-2.min',
-		]); ?>
+			<!-- Footer -->
+			<?= $this->Element('BackTheme.layout/footer'); ?>
+		
+		</div>
+	</div>
+
+	<!-- Scripts -->
+	<?= $this->Html->script([
+		'BackTheme./js/jquery.min',
+		'BackTheme./js/bootstrap.bundle.min',
+		'BackTheme./js/jquery.easing.min.min',
+		'BackTheme./js/sb-admin-2.min',
+	]); ?>
 </body>
 </html>
