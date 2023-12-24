@@ -18,25 +18,12 @@
   ]); ?>
 </head>
 
-<body id="page-top">
-	<div id="wrapper">
-
-		<!-- Menu -->
-		<?= $this->Element('BackTheme.layout/menu'); ?>
-
-		<div id="content-wrapper" class="d-flex flex-column">
-			<div id="content">
-				<div class="container-fluid">
-					<!-- Contents -->
-					<?= $this->fetch('content'); ?>
-				</div>
-			</div>
-
-			<!-- Footer -->
-			<?= $this->Element('BackTheme.layout/footer'); ?>
-		
-		</div>
+<body class="bg-gradient-primary">
+	<div class="container">
+		<!-- Contents -->
+		<?= $this->fetch('content'); ?>
 	</div>
+	
 
 	<!-- Scripts -->
 	<?= $this->Html->script([
