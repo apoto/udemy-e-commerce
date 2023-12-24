@@ -37,5 +37,12 @@ class PagesController extends AppController
     public function index() {
         
     }
+
+    /**
+     * Action
+     */
+    public function action($param) {
+        dd($param);
+    }
     
 }
