@@ -11,15 +11,20 @@
       <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
         <thead>
           <tr>
-            <th>Num</th>
+            <th>Name</th>
             <th>Created Date</th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
           <tr>
             <?php foreach($categories as $category): ?>
-                <td><?= $category->id ?></td>
-                <td><?= $category->name ?></td>
+                <td class="align-middle"><?= $category->name ?></td>
+                <td class="align-middle"><?= $category->created->format('Y/m/d') ?></td>
+                <td class="text-right">
+                    <?= $this->Html->link('<i class = "fas fa-edit"></i>', ['action' => 'edit'], ['class' => 'btn btn-warning', 'escape' => false]) ?>
+                    <?= $this->Html->link('<i class = "fas fa-trash"></i>', ['action' => 'delete'], ['class' => 'btn btn-danger', 'escape' => false, 'confirm' => 'このカテゴリーを削除してもよろしいですか？']) ?>
+                </td>
             <?php endforeach; ?>
           </tr>
         </tbody>
