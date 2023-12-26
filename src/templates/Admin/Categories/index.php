@@ -16,6 +16,14 @@
         <h6 class="m-0 font-weight-bold text-primary">カテゴリーリスト</h6>
     </div>
     <div class="card-body">
+        <?php
+        if(!$categories->count()) : ?>
+            <div class="alert alert-info">
+                カテゴリーがありません
+            </div>
+
+        <?php
+        else : ?>
         <div class="table-responsive">
         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
             <thead>
@@ -39,5 +47,7 @@
             </tbody>
         </table>
         </div>
+        <?php
+        endif; ?>
     </div>
 </div>
