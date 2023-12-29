@@ -19,10 +19,8 @@
     <span>Commands</span>
   </a>
 
-  <a class="nav-link" href="index.html">
-    <i class="fas fa-fw fa-tachometer-alt"></i>
-    <span>Categories</span>
-  </a>
+  <?= $this->Html->link('<i class="fas fa fa-list"></i> カテゴリー', [
+    'controller' => 'Categories', 'action' => 'index'], ['class' => 'nav-link' ,'escape' => false]) ?>
 
   <a class="nav-link" href="index.html">
     <i class="fas fa-fw fa-tachometer-alt"></i>
