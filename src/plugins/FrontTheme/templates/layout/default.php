@@ -35,6 +35,9 @@
 <!-- Menu -->
 <?= $this->Element('FrontTheme.layout/menu'); ?>
 
+<!-- Flash -->	
+<?= $this->Flash->render(); ?>
+
 <!-- Contents -->
 <?= $this->fetch('content'); ?>
 

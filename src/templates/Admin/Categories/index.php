@@ -12,9 +12,6 @@
 
     <!-- DataTales Example -->
     <div class="card shadow my-4">
-    <div class="card-header py-3">
-        <h6 class="m-0 font-weight-bold text-primary">カテゴリーリスト</h6>
-    </div>
     <div class="card-body">
         <?php
         if(!$categories->count()) : ?>
@@ -34,16 +31,17 @@
             </tr>
             </thead>
             <tbody>
-            <tr>
+            
                 <?php foreach($categories as $category): ?>
-                    <td class="align-middle"><?= $category->name ?></td>
-                    <td class="align-middle"><?= $category->created->format('Y/m/d') ?></td>
-                    <td class="text-right">
-                        <?= $this->Html->link('<i class = "fas fa-edit"></i>', ['action' => 'edit', $category->id], ['class' => 'btn btn-warning', 'escape' => false]) ?>
-                        <?= $this->Html->link('<i class = "fas fa-trash"></i>', ['action' => 'delete', $category->id], ['class' => 'btn btn-danger', 'escape' => false, 'confirm' => 'このカテゴリーを削除してもよろしいですか？']) ?>
-                    </td>
+                    <tr>
+                        <td class="align-middle"><?= $category->name ?></td>
+                        <td class="align-middle"><?= $category->created->format('Y/m/d') ?></td>
+                        <td class="text-right">
+                            <?= $this->Html->link('<i class = "fas fa-edit"></i>', ['action' => 'edit', $category->id], ['class' => 'btn btn-warning', 'escape' => false]) ?>
+                            <?= $this->Html->link('<i class = "fas fa-trash"></i>', ['action' => 'delete', $category->id], ['class' => 'btn btn-danger', 'escape' => false, 'confirm' => 'このカテゴリーを削除してもよろしいですか？']) ?>
+                        </td>
+                    </tr>
                 <?php endforeach; ?>
-            </tr>
             </tbody>
         </table>
         </div>

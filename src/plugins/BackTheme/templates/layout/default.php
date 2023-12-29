@@ -27,8 +27,13 @@
 		<div id="content-wrapper" class="d-flex flex-column">
 			<div id="content">
 				<div class="container-fluid">
+				
+					<!-- Flash -->	
+					<?= $this->Flash->render(); ?>
+
 					<!-- Contents -->
-					<?= $this->fetch('content'); ?>
+						<?= $this->fetch('content'); ?>
+				
 				</div>
 			</div>
 
