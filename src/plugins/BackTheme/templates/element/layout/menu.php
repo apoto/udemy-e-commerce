@@ -22,15 +22,14 @@
   <?= $this->Html->link('<i class="fas fa fa-list"></i> カテゴリー', [
     'controller' => 'Categories', 'action' => 'index'], ['class' => 'nav-link' ,'escape' => false]) ?>
 
+  <?= $this->Html->link('<i class="fas fa fa-cogs"></i> 特徴', [
+    'controller' => 'Characteristics', 'action' => 'index'], ['class' => 'nav-link' ,'escape' => false]) ?>
+
   <a class="nav-link" href="index.html">
     <i class="fas fa-fw fa-tachometer-alt"></i>
     <span>Products</span>
   </a>
 
-  <a class="nav-link" href="index.html">
-    <i class="fas fa-fw fa-tachometer-alt"></i>
-    <span>Characteristics</span>
-  </a>
 </li>
 
 <!-- Nav Item - Pages Collapse Menu -->

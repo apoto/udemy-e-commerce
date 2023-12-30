@@ -49,7 +49,7 @@ class CategoriesController extends AppController
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('テゴリーを保存できませんでした、再度試してください。'));
+            $this->Flash->error(__('カテゴリーを保存できませんでした、再度試してください。'));
         }
         $this->set(compact('category'));
     }
