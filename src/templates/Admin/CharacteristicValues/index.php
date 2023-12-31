@@ -1,10 +1,10 @@
 <div class="container-fluid mt-5">
     <div class="row">
         <div class="col">
-            <h1 class="h3 mb-2 text-gray-800">Characteristic</h1>
+            <h1 class="h3 mb-2 text-gray-800">Opthions the Characteristic</h1>
         </div>
         <div class="col text-right">
-            <?= $this->Html->link('<i class = "fas fa-add"></i> 追加', ['action' => 'add'], ['class' => 'btn btn-success', 'escape' => false]) ?>
+            <?= $this->Html->link('<i class = "fas fa-add"></i> 追加', ['action' => 'add', $characteristicId], ['class' => 'btn btn-success', 'escape' => false]) ?>
         </div>
     </div>
     
@@ -13,9 +13,9 @@
     <!-- DataTales Example -->
     <div class="card shadow my-4">
         <div class="card-body">
-            <?php if(!$characteristics->count()) : ?>
+            <?php if(!$characteristicValues->count()) : ?>
                 <div class="alert alert-info">
-                    特徴がありません
+                    特徴オプションがありません
                 </div>
 
             <?php else : ?>
@@ -30,14 +30,13 @@
                         </thead>
                         <tbody>
                         
-                            <?php foreach($characteristics as $characteristic): ?>
+                            <?php foreach($characteristicValues as $characteristicValue): ?>
                                 <tr>
-                                    <td class="align-middle"><?= $characteristic->name ?></td>
-                                    <td class="align-middle"><?= $characteristic->created->format('Y/m/d') ?></td>
+                                    <td class="align-middle"><?= $characteristicValue->name ?></td>
+                                    <td class="align-middle"><?= $characteristicValue->created->format('Y/m/d') ?></td>
                                     <td class="text-right">
-                                        <?= $this->Html->link('<i class = "fas fa-list"></i>', ['controller' => 'CharacteristicValues', 'action' => 'index', $characteristic->id], ['class' => 'btn btn-primary ', 'escape' => false]) ?>    
-                                        <?= $this->Html->link('<i class = "fas fa-edit"></i>', ['action' => 'edit', $characteristic->id], ['class' => 'btn btn-warning', 'escape' => false]) ?>
-                                        <?= $this->Html->link('<i class = "fas fa-trash"></i>', ['action' => 'delete', $characteristic->id], ['class' => 'btn btn-danger', 'escape' => false, 'confirm' => 'この特徴を削除してもよろしいですか？']) ?>
+                                        <?= $this->Html->link('<i class = "fas fa-edit"></i>', ['action' => 'edit', $characteristicValue->id], ['class' => 'btn btn-warning', 'escape' => false]) ?>
+                                        <?= $this->Html->link('<i class = "fas fa-trash"></i>', ['action' => 'delete', $characteristicValue->id], ['class' => 'btn btn-danger', 'escape' => false, 'confirm' => 'この特徴を削除してもよろしいですか？']) ?>
                                     </td>
                                 </tr>
                             <?php endforeach; ?>
