@@ -25,10 +25,8 @@
   <?= $this->Html->link('<i class="fas fa fa-cogs"></i> 特徴', [
     'controller' => 'Characteristics', 'action' => 'index'], ['class' => 'nav-link' ,'escape' => false]) ?>
 
-  <a class="nav-link" href="index.html">
-    <i class="fas fa-fw fa-tachometer-alt"></i>
-    <span>Products</span>
-  </a>
+  <?= $this->Html->link('<i class="fas fa fa-shopping-cart"></i> 商品', [
+      'controller' => 'Products', 'action' => 'index'], ['class' => 'nav-link' ,'escape' => false]) ?>
 
 </li>
 
