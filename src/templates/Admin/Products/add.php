@@ -29,7 +29,12 @@
                 <div class="col-md-6">
                     <?= $this->Form->control('price', ['class' => 'form-control']) ?>
                 </div>
-                
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <?= $this->Form->control('characteristic_values._ids', ['class' => 'form-control', 'options' => $characteristics_values, 'class' => 'select2 d-block w-100']) ?>
+                </div>           
             </div>
         </div>
         <div class="card-footer">

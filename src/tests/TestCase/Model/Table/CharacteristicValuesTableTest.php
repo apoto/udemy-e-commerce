@@ -26,7 +26,7 @@ class CharacteristicValuesTableTest extends TestCase
     protected $fixtures = [
         'app.CharacteristicValues',
         'app.Characteristics',
-        'app.CharacteristicsValuesProducts',
+        'app.CharacteristicValuesProducts',
     ];
 
     /**

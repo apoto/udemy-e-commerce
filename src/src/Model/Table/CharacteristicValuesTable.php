@@ -12,7 +12,7 @@ use Cake\Validation\Validator;
  * CharacteristicValues Model
  *
  * @property \App\Model\Table\CharacteristicsTable&\Cake\ORM\Association\BelongsTo $Characteristics
- * @property \App\Model\Table\CharacteristicsValuesProductsTable&\Cake\ORM\Association\HasMany $CharacteristicsValuesProducts
+ * @property \App\Model\Table\CharacteristicValuesProductsTable&\Cake\ORM\Association\HasMany $CharacteristicValuesProducts
  *
  * @method \App\Model\Entity\CharacteristicValue newEmptyEntity()
  * @method \App\Model\Entity\CharacteristicValue newEntity(array $data, array $options = [])
@@ -51,7 +51,7 @@ class CharacteristicValuesTable extends Table
         $this->belongsTo('Characteristics', [
             'foreignKey' => 'characteristic_id',
         ]);
-        $this->hasMany('CharacteristicsValuesProducts', [
+        $this->hasMany('CharacteristicValuesProducts', [
             'foreignKey' => 'characteristic_value_id',
         ]);
     }

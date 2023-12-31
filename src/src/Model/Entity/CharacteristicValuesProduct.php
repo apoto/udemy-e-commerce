@@ -6,7 +6,7 @@ namespace App\Model\Entity;
 use Cake\ORM\Entity;
 
 /**
- * CharacteristicsValuesProduct Entity
+ * CharacteristicValuesProduct Entity
  *
  * @property int $id
  * @property int $characteristic_value_id
@@ -15,7 +15,7 @@ use Cake\ORM\Entity;
  * @property \App\Model\Entity\CharacteristicValue $characteristic_value
  * @property \App\Model\Entity\Product $product
  */
-class CharacteristicsValuesProduct extends Entity
+class CharacteristicValuesProduct extends Entity
 {
     /**
      * Fields that can be mass assigned using newEntity() or patchEntity().

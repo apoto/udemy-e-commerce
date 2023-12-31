@@ -55,7 +55,7 @@ class CharacteristicValuesController extends AppController
             }
             $this->Flash->error(__('特徴オプションを保存できませんでした、再度試してください。'));
         }
-        $this->set(compact('characteristicValues'));
+        $this->set(compact('characteristicValue'));
     }
 
     /**

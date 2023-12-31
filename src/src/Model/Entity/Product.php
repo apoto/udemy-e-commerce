@@ -18,7 +18,7 @@ use Cake\ORM\Entity;
  * @property \Cake\I18n\FrozenTime|null $deleted
  *
  * @property \App\Model\Entity\Category $category
- * @property \App\Model\Entity\CharacteristicsValuesProduct[] $characteristics_values_products
+ * @property \App\Model\Entity\CharacteristicValuesProduct[] $characteristic_values_products
  * @property \App\Model\Entity\Photo[] $photos
  */
 class Product extends Entity
@@ -41,7 +41,7 @@ class Product extends Entity
         'modified' => true,
         'deleted' => true,
         'category' => true,
-        'characteristics_values_products' => true,
+        'characteristic_values_products' => true,
         'photos' => true,
     ];
 }

@@ -3,20 +3,20 @@ declare(strict_types=1);
 
 namespace App\Test\TestCase\Model\Table;
 
-use App\Model\Table\CharacteristicsValuesProductsTable;
+use App\Model\Table\CharacteristicValuesProductsTable;
 use Cake\TestSuite\TestCase;
 
 /**
- * App\Model\Table\CharacteristicsValuesProductsTable Test Case
+ * App\Model\Table\CharacteristicValuesProductsTable Test Case
  */
-class CharacteristicsValuesProductsTableTest extends TestCase
+class CharacteristicValuesProductsTableTest extends TestCase
 {
     /**
      * Test subject
      *
-     * @var \App\Model\Table\CharacteristicsValuesProductsTable
+     * @var \App\Model\Table\CharacteristicValuesProductsTable
      */
-    protected $CharacteristicsValuesProducts;
+    protected $CharacteristicValuesProducts;
 
     /**
      * Fixtures
@@ -24,7 +24,7 @@ class CharacteristicsValuesProductsTableTest extends TestCase
      * @var array<string>
      */
     protected $fixtures = [
-        'app.CharacteristicsValuesProducts',
+        'app.CharacteristicValuesProducts',
         'app.CharacteristicValues',
         'app.Products',
     ];
@@ -37,8 +37,8 @@ class CharacteristicsValuesProductsTableTest extends TestCase
     protected function setUp(): void
     {
         parent::setUp();
-        $config = $this->getTableLocator()->exists('CharacteristicsValuesProducts') ? [] : ['className' => CharacteristicsValuesProductsTable::class];
-        $this->CharacteristicsValuesProducts = $this->getTableLocator()->get('CharacteristicsValuesProducts', $config);
+        $config = $this->getTableLocator()->exists('CharacteristicValuesProducts') ? [] : ['className' => CharacteristicValuesProductsTable::class];
+        $this->CharacteristicValuesProducts = $this->getTableLocator()->get('CharacteristicValuesProducts', $config);
     }
 
     /**
@@ -48,7 +48,7 @@ class CharacteristicsValuesProductsTableTest extends TestCase
      */
     protected function tearDown(): void
     {
-        unset($this->CharacteristicsValuesProducts);
+        unset($this->CharacteristicValuesProducts);
 
         parent::tearDown();
     }
@@ -57,7 +57,7 @@ class CharacteristicsValuesProductsTableTest extends TestCase
      * Test validationDefault method
      *
      * @return void
-     * @uses \App\Model\Table\CharacteristicsValuesProductsTable::validationDefault()
+     * @uses \App\Model\Table\CharacteristicValuesProductsTable::validationDefault()
      */
     public function testValidationDefault(): void
     {
@@ -68,7 +68,7 @@ class CharacteristicsValuesProductsTableTest extends TestCase
      * Test buildRules method
      *
      * @return void
-     * @uses \App\Model\Table\CharacteristicsValuesProductsTable::buildRules()
+     * @uses \App\Model\Table\CharacteristicValuesProductsTable::buildRules()
      */
     public function testBuildRules(): void
     {

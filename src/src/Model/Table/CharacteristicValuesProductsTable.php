@@ -9,26 +9,26 @@ use Cake\ORM\Table;
 use Cake\Validation\Validator;
 
 /**
- * CharacteristicsValuesProducts Model
+ * CharacteristicValuesProducts Model
  *
  * @property \App\Model\Table\CharacteristicValuesTable&\Cake\ORM\Association\BelongsTo $CharacteristicValues
  * @property \App\Model\Table\ProductsTable&\Cake\ORM\Association\BelongsTo $Products
  *
- * @method \App\Model\Entity\CharacteristicsValuesProduct newEmptyEntity()
- * @method \App\Model\Entity\CharacteristicsValuesProduct newEntity(array $data, array $options = [])
- * @method \App\Model\Entity\CharacteristicsValuesProduct[] newEntities(array $data, array $options = [])
- * @method \App\Model\Entity\CharacteristicsValuesProduct get($primaryKey, $options = [])
- * @method \App\Model\Entity\CharacteristicsValuesProduct findOrCreate($search, ?callable $callback = null, $options = [])
- * @method \App\Model\Entity\CharacteristicsValuesProduct patchEntity(\Cake\Datasource\EntityInterface $entity, array $data, array $options = [])
- * @method \App\Model\Entity\CharacteristicsValuesProduct[] patchEntities(iterable $entities, array $data, array $options = [])
- * @method \App\Model\Entity\CharacteristicsValuesProduct|false save(\Cake\Datasource\EntityInterface $entity, $options = [])
- * @method \App\Model\Entity\CharacteristicsValuesProduct saveOrFail(\Cake\Datasource\EntityInterface $entity, $options = [])
- * @method \App\Model\Entity\CharacteristicsValuesProduct[]|\Cake\Datasource\ResultSetInterface|false saveMany(iterable $entities, $options = [])
- * @method \App\Model\Entity\CharacteristicsValuesProduct[]|\Cake\Datasource\ResultSetInterface saveManyOrFail(iterable $entities, $options = [])
- * @method \App\Model\Entity\CharacteristicsValuesProduct[]|\Cake\Datasource\ResultSetInterface|false deleteMany(iterable $entities, $options = [])
- * @method \App\Model\Entity\CharacteristicsValuesProduct[]|\Cake\Datasource\ResultSetInterface deleteManyOrFail(iterable $entities, $options = [])
+ * @method \App\Model\Entity\CharacteristicValuesProduct newEmptyEntity()
+ * @method \App\Model\Entity\CharacteristicValuesProduct newEntity(array $data, array $options = [])
+ * @method \App\Model\Entity\CharacteristicValuesProduct[] newEntities(array $data, array $options = [])
+ * @method \App\Model\Entity\CharacteristicValuesProduct get($primaryKey, $options = [])
+ * @method \App\Model\Entity\CharacteristicValuesProduct findOrCreate($search, ?callable $callback = null, $options = [])
+ * @method \App\Model\Entity\CharacteristicValuesProduct patchEntity(\Cake\Datasource\EntityInterface $entity, array $data, array $options = [])
+ * @method \App\Model\Entity\CharacteristicValuesProduct[] patchEntities(iterable $entities, array $data, array $options = [])
+ * @method \App\Model\Entity\CharacteristicValuesProduct|false save(\Cake\Datasource\EntityInterface $entity, $options = [])
+ * @method \App\Model\Entity\CharacteristicValuesProduct saveOrFail(\Cake\Datasource\EntityInterface $entity, $options = [])
+ * @method \App\Model\Entity\CharacteristicValuesProduct[]|\Cake\Datasource\ResultSetInterface|false saveMany(iterable $entities, $options = [])
+ * @method \App\Model\Entity\CharacteristicValuesProduct[]|\Cake\Datasource\ResultSetInterface saveManyOrFail(iterable $entities, $options = [])
+ * @method \App\Model\Entity\CharacteristicValuesProduct[]|\Cake\Datasource\ResultSetInterface|false deleteMany(iterable $entities, $options = [])
+ * @method \App\Model\Entity\CharacteristicValuesProduct[]|\Cake\Datasource\ResultSetInterface deleteManyOrFail(iterable $entities, $options = [])
  */
-class CharacteristicsValuesProductsTable extends Table
+class CharacteristicValuesProductsTable extends Table
 {
     /**
      * Initialize method
@@ -40,7 +40,7 @@ class CharacteristicsValuesProductsTable extends Table
     {
         parent::initialize($config);
 
-        $this->setTable('characteristics_values_products');
+        $this->setTable('characteristic_values_products');
         $this->setDisplayField('id');
         $this->setPrimaryKey('id');
 

@@ -12,7 +12,7 @@ use Cake\Validation\Validator;
  * Products Model
  *
  * @property \App\Model\Table\CategoriesTable&\Cake\ORM\Association\BelongsTo $Categories
- * @property \App\Model\Table\CharacteristicsValuesProductsTable&\Cake\ORM\Association\HasMany $CharacteristicsValuesProducts
+ * @property \App\Model\Table\CharacteristicValuesProductsTable&\Cake\ORM\Association\HasMany $CharacteristicValuesProducts
  * @property \App\Model\Table\PhotosTable&\Cake\ORM\Association\HasMany $Photos
  *
  * @method \App\Model\Entity\Product newEmptyEntity()
@@ -52,10 +52,10 @@ class ProductsTable extends Table
         $this->belongsTo('Categories', [
             'foreignKey' => 'category_id',
         ]);
-        // $this->hasMany('CharacteristicsValuesProducts', [
+        // $this->hasMany('CharacteristicValuesProducts', [
         //     'foreignKey' => 'product_id',
         // ]);
-        $this->belongsToMany('CharacteristicsValues', [
+        $this->belongsToMany('CharacteristicValues', [
             'foreignKey' => 'product_id',
             'targetForeignKey' => 'characteristic_value_id',
             'joinTable' => 'characteristic_values_products',
