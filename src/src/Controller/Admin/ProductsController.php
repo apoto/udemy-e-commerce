@@ -60,6 +60,7 @@ class ProductsController extends AppController
         $categories = $this->Products->Categories->find('list', ['keyField' => 'id', 'value' => 'name'])
         ->where(['deleted IS NULL'])
         ->toArray();
+
         $this->set(compact('product', 'categories'));
     }
 
@@ -82,7 +83,13 @@ class ProductsController extends AppController
             }
             $this->Flash->error('商品を保存できませんでした、再度試してください。');
         }
-        $this->set(compact('product'));
+
+        // カテゴリーのリストを取得
+        $categories = $this->Products->Categories->find('list', ['keyField' => 'id', 'value' => 'name'])
+        ->where(['deleted IS NULL'])
+        ->toArray();
+        
+        $this->set(compact('product', 'categories'));
     }
 
     /**

@@ -24,7 +24,7 @@
             </div>
             <div class="row">
                 <div class="col-md-6">
-                    <?= $this->Form->control('desctiption', ['class' => 'form-control']) ?>
+                    <?= $this->Form->control('description', ['class' => 'form-control']) ?>
                 </div>
                 <div class="col-md-6">
                     <?= $this->Form->control('price', ['class' => 'form-control']) ?>
