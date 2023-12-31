@@ -42,16 +42,16 @@ class CharacteristicValuesController extends AppController
      */
     public function add($characteristicId)
     {
-        $characteristicValues = $this->CharacteristicValues->newEmptyEntity();
+        $characteristicValue = $this->CharacteristicValues->newEmptyEntity();
         if ($this->request->is('post')) {
-            $characteristicValues = $this->CharacteristicValues->patchEntity(
-                $characteristicValues,
+            $characteristicValue = $this->CharacteristicValues->patchEntity(
+                $characteristicValue,
                 $this->request->getData() + ['characteristic_id' => $characteristicId]
             );
-            if ($this->CharacteristicValues->save($characteristicValues)) {
+            if ($this->CharacteristicValues->save($characteristicValue)) {
                 $this->Flash->success(__('特徴オプションを追加しました。'));
 
-                return $this->redirect(['action' => 'index', $characteristicValues->characteristic_id]);
+                return $this->redirect(['action' => 'index', $characteristicId]);
             }
             $this->Flash->error(__('特徴オプションを保存できませんでした、再度試してください。'));
         }
@@ -67,17 +67,17 @@ class CharacteristicValuesController extends AppController
      */
     public function edit($id = null)
     {
-        $characteristicValues = $this->CharacteristicValues->get($id);
+        $characteristicValue = $this->CharacteristicValues->get($id);
         if ($this->request->is(['patch', 'post', 'put'])) {
-            $characteristicValues = $this->CharacteristicValues->patchEntity($characteristicValues, $this->request->getData());
-            if ($this->CharacteristicValues->save($characteristicValues)) {
+            $characteristicValue = $this->CharacteristicValues->patchEntity($characteristicValue, $this->request->getData());
+            if ($this->CharacteristicValues->save($characteristicValue)) {
                 $this->Flash->success('特徴オプションを保存しました。');
 
-                return $this->redirect(['action' => 'index']);
+                return $this->redirect(['action' => 'index', $characteristicValue->characteristic_id]);
             }
             $this->Flash->error('特徴オプションを保存できませんでした、再度試してください。');
         }
-        $this->set(compact('characteristicValues'));
+        $this->set(compact('characteristicValue'));
     }
 
     /**
@@ -89,15 +89,15 @@ class CharacteristicValuesController extends AppController
      */
     public function delete($id = null)
     {
-        $characteristicValues = $this->CharacteristicValues->get($id);
-        $characteristicValues = $this->CharacteristicValues->patchEntity($characteristicValues, ['deleted' => date('Y-m-d H:i:s')]);
+        $characteristicValue = $this->CharacteristicValues->get($id);
+        $characteristicValue = $this->CharacteristicValues->patchEntity($characteristicValue, ['deleted' => date('Y-m-d H:i:s')]);
 
-        if ($this->CharacteristicValues->save($characteristicValues)) {
+        if ($this->CharacteristicValues->save($characteristicValue)) {
             $this->Flash->success('特徴オプションを削除しました');
         } else {
             $this->Flash->error('特徴オプションの削除に失敗しました');
         }
 
-        return $this->redirect(['action' => 'index']);
+        return $this->redirect(['action' => 'index', $characteristicValue->characteristic_id]);
     }
 }

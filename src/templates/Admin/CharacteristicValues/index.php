@@ -1,7 +1,7 @@
 <div class="container-fluid mt-5">
     <div class="row">
         <div class="col">
-            <h1 class="h3 mb-2 text-gray-800">Opthions the Characteristic</h1>
+            <h1 class="h3 mb-2 text-gray-800">Opthion the characteristic</h1>
         </div>
         <div class="col text-right">
             <?= $this->Html->link('<i class = "fas fa-add"></i> 追加', ['action' => 'add', $characteristicId], ['class' => 'btn btn-success', 'escape' => false]) ?>

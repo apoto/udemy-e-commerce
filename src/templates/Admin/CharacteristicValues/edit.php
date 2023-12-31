@@ -1,7 +1,7 @@
 <div class="container-fluid mt-5">
     <div class="row">
         <div class="col">
-            <h1 class="h3 mb-2 text-gray-800">Characteristic</h1>
+            <h1 class="h3 mb-2 text-gray-800">Option the characteristic</h1>
         </div>
     </div>
     
@@ -9,9 +9,9 @@
 
     <!-- DataTales Example -->
     <div class="card shadow my-4">
-    <?= $this->Form->create($characteristic) ?> 
+    <?= $this->Form->create($characteristicValue) ?> 
         <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">特徴編集</h6>
+            <h6 class="m-0 font-weight-bold text-primary">特徴オプション編集</h6>
         </div>
         <div class="card-body">
             <?= $this->Form->control('name', ['class' => 'form-control']) ?>
