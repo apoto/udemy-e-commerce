@@ -4,6 +4,8 @@ declare(strict_types=1);
 namespace App\Controller\Admin;
 
 use App\Controller\Admin\AppController;
+use App\Model\Entity\Product;
+use Cake\Utility\Hash;
 
 /**
  * Products Controller
@@ -47,7 +49,6 @@ class ProductsController extends AppController
         $product = $this->Products->newEmptyEntity();
         if ($this->request->is('post')) {
             $product = $this->Products->patchEntity($product, $this->request->getData());
-            debug($product);
             if ($this->Products->save($product)) {
                 $this->Flash->success(__('商品を追加しました。'));
 
@@ -61,7 +62,20 @@ class ProductsController extends AppController
         ->where(['deleted IS NULL'])
         ->toArray();
 
-        $this->set(compact('product', 'categories'));
+        // 特徴を取得
+        $Characteristics = $this->fetchTable('Characteristics');
+        $characteristics = $Characteristics->find()
+        ->contain(['CharacteristicValues' => ['conditions' => ['deleted IS NULL']]])
+        ->where(['deleted IS NULL'])
+        ->toArray();
+
+        $characteristicValues = [];
+        foreach($characteristics as $characteristic) {
+            foreach($characteristic->characteristic_values as $characteristic_value){
+                $characteristicValues[$characteristic_value->id] = $characteristic_value->name;
+            }
+        }
+        $this->set(compact('product', 'categories', 'characteristics', 'characteristicValues'));
     }
 
     /**
@@ -73,7 +87,7 @@ class ProductsController extends AppController
      */
     public function edit($id = null)
     {
-        $product = $this->Products->get($id);
+        $product = $this->Products->get($id, ['contain' => ['CharacteristicValues']]);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $product = $this->Products->patchEntity($product, $this->request->getData());
             if ($this->Products->save($product)) {
@@ -89,7 +103,20 @@ class ProductsController extends AppController
         ->where(['deleted IS NULL'])
         ->toArray();
         
-        $this->set(compact('product', 'categories'));
+        // 特徴を取得
+        $Characteristics = $this->fetchTable('Characteristics');
+        $characteristics = $Characteristics->find()
+        ->contain(['CharacteristicValues' => ['conditions' => ['deleted IS NULL']]])
+        ->where(['deleted IS NULL'])
+        ->toArray();
+
+        $characteristicValues = [];
+        foreach($characteristics as $characteristic) {
+            foreach($characteristic->characteristic_values as $characteristic_value){
+                $characteristicValues[$characteristic_value->id] = $characteristic_value->name;
+            }
+        }
+        $this->set(compact('product', 'categories', 'characteristics', 'characteristicValues'));
     }
 
     /**

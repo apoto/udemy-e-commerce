@@ -33,7 +33,8 @@
 
             <div class="row">
                 <div class="col-md-6">
-                    <?= $this->Form->control('characteristic_values._ids', ['class' => 'form-control', 'options' => $characteristics_values, 'class' => 'select2 d-block w-100']) ?>
+                <?= $this->Form->control('characteristic_values._ids', ['class' => 'form-control select2 d-block w-100', 'options' => $characteristicValues]) ?>
+
                 </div>           
             </div>
         </div>

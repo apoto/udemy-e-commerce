@@ -42,6 +42,7 @@ class Product extends Entity
         'deleted' => true,
         'category' => true,
         'characteristic_values_products' => true,
+        'characteristic_values' => true,
         'photos' => true,
     ];
 }
