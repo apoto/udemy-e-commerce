@@ -37,6 +37,7 @@
                                     <td class="align-middle"><?= $product->name ?></td>
                                     <td class="align-middle"><?= $product->price ?></td>
                                     <td class="text-right">
+                                        <?= $this->Html->link('<i class = "fas fa-list"></i>', ['controller' => 'Photos', 'action' => 'index', $product->id], ['class' => 'btn btn-primary ', 'escape' => false]) ?>
                                         <?= $this->Html->link('<i class = "fas fa-edit"></i>', ['action' => 'edit', $product->id], ['class' => 'btn btn-warning', 'escape' => false]) ?>
                                         <?= $this->Html->link('<i class = "fas fa-trash"></i>', ['action' => 'delete', $product->id], ['class' => 'btn btn-danger', 'escape' => false, 'confirm' => 'この商品を削除してもよろしいですか？']) ?>
                                     </td>
