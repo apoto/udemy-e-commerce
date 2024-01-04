@@ -50,6 +50,13 @@ class PhotosTable extends Table
         $this->belongsTo('Products', [
             'foreignKey' => 'product_id',
         ]);
+
+        $this->addBehavior('Proffer.Proffer', [
+            'file_name' => [
+                'root' => WWW_ROOT . 'img',
+                'dir' => 'file_dir'
+            ]
+        ]);
     }
 
     /**
@@ -60,18 +67,6 @@ class PhotosTable extends Table
      */
     public function validationDefault(Validator $validator): Validator
     {
-        $validator
-            ->scalar('file_dir')
-            ->maxLength('file_dir', 255)
-            ->requirePresence('file_dir', 'create')
-            ->notEmptyFile('file_dir');
-
-        $validator
-            ->scalar('file_name')
-            ->maxLength('file_name', 255)
-            ->requirePresence('file_name', 'create')
-            ->notEmptyFile('file_name');
-
         $validator
             ->scalar('alt')
             ->maxLength('alt', 100)

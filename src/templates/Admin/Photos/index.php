@@ -33,10 +33,12 @@
                         
                             <?php foreach($photos as $photo): ?>
                                 <tr>
-                                    <td class="align-middle"><?= $this->Html->image('cake.power.gif') ?></td>
+                                    <td class="align-middle text-center">
+                                        <?= $this->Html->image('photos/file_name/' . $photo->file_dir . '/' . $photo->file_name, ['style' => 'width: 100px']) ?>
+                                    </td>
                                     <td class="align-middle"><?= $photo->alt ?></td>
                                     <td class="align-middle"><?= $photo->created ?></td>
-                                    <td class="text-right">
+                                    <td class="align-middle text-right">
                                         <?= $this->Html->link('<i class = "fas fa-edit"></i>', ['action' => 'edit', $photo->id], ['class' => 'btn btn-warning', 'escape' => false]) ?>
                                         <?= $this->Html->link('<i class = "fas fa-trash"></i>', ['action' => 'delete', $photo->id], ['class' => 'btn btn-danger', 'escape' => false, 'confirm' => 'この写真を削除してもよろしいですか？']) ?>
                                     </td>
