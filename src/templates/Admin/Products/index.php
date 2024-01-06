@@ -1,7 +1,7 @@
 <div class="container-fluid mt-5">
     <div class="row">
         <div class="col">
-            <h1 class="h3 mb-2 text-gray-800">Products</h1>
+            <h1 class="h3 mb-2 text-gray-800">商品</h1>
         </div>
         <div class="col text-right">
             <?= $this->Html->link('<i class = "fas fa-add"></i> 追加', ['action' => 'add'], ['class' => 'btn btn-success', 'escape' => false]) ?>
@@ -23,9 +23,9 @@
                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                         <thead>
                         <tr>
-                            <th>Category</th>
-                            <th>Name</th>
-                            <th>Price</th>
+                            <th>カテゴリー</th>
+                            <th>商品名</th>
+                            <th>価格</th>
                             <th></th>
                         </tr>
                         </thead>
@@ -35,7 +35,7 @@
                                 <tr>
                                     <td class="align-middle"><?= $product->category->name ?></td>
                                     <td class="align-middle"><?= $product->name ?></td>
-                                    <td class="align-middle"><?= $product->price ?></td>
+                                    <td class="align-middle"><?= $this->Number->currency($product->price) ?></td>
                                     <td class="text-right">
                                         <?= $this->Html->link('<i class = "fas fa-list"></i>', ['controller' => 'Photos', 'action' => 'index', $product->id], ['class' => 'btn btn-primary ', 'escape' => false]) ?>
                                         <?= $this->Html->link('<i class = "fas fa-edit"></i>', ['action' => 'edit', $product->id], ['class' => 'btn btn-warning', 'escape' => false]) ?>

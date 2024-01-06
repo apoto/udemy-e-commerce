@@ -1,7 +1,7 @@
 <div class="container-fluid mt-5">
     <div class="row">
         <div class="col">
-            <h1 class="h3 mb-2 text-gray-800">Characteristic</h1>
+            <h1 class="h3 mb-2 text-gray-800">商品特性</h1>
         </div>
         <div class="col text-right">
             <?= $this->Html->link('<i class = "fas fa-add"></i> 追加', ['action' => 'add'], ['class' => 'btn btn-success', 'escape' => false]) ?>
@@ -15,7 +15,7 @@
         <div class="card-body">
             <?php if(!$characteristics->count()) : ?>
                 <div class="alert alert-info">
-                    特徴がありません
+                    商品特性がありません
                 </div>
 
             <?php else : ?>
@@ -23,8 +23,8 @@
                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                         <thead>
                         <tr>
-                            <th>Name</th>
-                            <th>Created Date</th>
+                            <th>特性名</th>
+                            <th>作成日</th>
                             <th></th>
                         </tr>
                         </thead>

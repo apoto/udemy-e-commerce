@@ -1,7 +1,7 @@
 <div class="container-fluid mt-5">
     <div class="row">
         <div class="col">
-            <h1 class="h3 mb-2 text-gray-800">Order</h1>
+            <h1 class="h3 mb-2 text-gray-800">注文</h1>
         </div>
 
         <div class="col text-right">
@@ -24,8 +24,8 @@
                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                         <thead>
                         <tr>
-                            <th>Name</th>
-                            <th>Created Date</th>
+                            <th>注文者</th>
+                            <th>購入日時</th>
                             <th></th>
                         </tr>
                         </thead>
@@ -34,7 +34,7 @@
                             <?php foreach($orders as $order): ?>
                                 <tr>
                                     <td class="align-middle"><?= $order->full_name ?></td>
-                                    <td class="align-middle"><?= $order->created->format('Y/m/d') ?></td>
+                                    <td class="align-middle"><?= $order->created ?></td>
                                     <td class="text-right">
                                         <?= $this->Html->link('<i class = "fas fa-search"></i>', ['controller' => 'Orders', 'action' => 'view', $order->id], ['class' => 'btn btn-primary ', 'escape' => false]) ?>    
                                     </td>

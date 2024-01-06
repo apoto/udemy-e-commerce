@@ -1,7 +1,7 @@
 <div class="container-fluid mt-5">
     <div class="row">
         <div class="col">
-            <h1 class="h3 mb-2 text-gray-800">Product</h1>
+            <h1 class="h3 mb-2 text-gray-800">商品</h1>
         </div>
     </div>
     
@@ -16,24 +16,24 @@
         <div class="card-body">
             <div class="row">
                 <div class="col-md-6">
-                    <?= $this->Form->control('category_id', ['class' => 'form-control', 'options' => $categories, 'class' => 'select2 d-block w-100']) ?>
+                    <?= $this->Form->control('category_id', ['label' => 'カテゴリー', 'class' => 'form-control', 'options' => $categories, 'class' => 'select2 d-block w-100']) ?>
                 </div>
                 <div class="col-md-6">
-                    <?= $this->Form->control('name', ['class' => 'form-control']) ?>
+                    <?= $this->Form->control('name', ['label' => '商品名', 'class' => 'form-control']) ?>
                 </div>                
             </div>
             <div class="row">
                 <div class="col-md-6">
-                    <?= $this->Form->control('description', ['class' => 'form-control']) ?>
+                    <?= $this->Form->control('description', ['label' => '説明', 'class' => 'form-control']) ?>
                 </div>
                 <div class="col-md-6">
-                    <?= $this->Form->control('price', ['class' => 'form-control']) ?>
+                    <?= $this->Form->control('price', ['label' => '価格', 'class' => 'form-control']) ?>
                 </div>
             </div>
 
             <div class="row">
                 <div class="col-md-6">
-                <?= $this->Form->control('characteristic_values._ids', ['class' => 'form-control select2 d-block w-100', 'options' => $characteristicValues]) ?>
+                <?= $this->Form->control('characteristic_values._ids', ['label' => '商品特性', 'class' => 'form-control select2 d-block w-100', 'options' => $characteristicValues]) ?>
 
                 </div>           
             </div>

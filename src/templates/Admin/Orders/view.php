@@ -1,7 +1,7 @@
 <div class="container-fluid mt-5">
     <div class="row">
         <div class="col">
-            <h1 class="h3 mb-2 text-gray-800">Order</h1>
+            <h1 class="h3 mb-2 text-gray-800">注文</h1>
         </div>
 
         <div class="col text-right">
@@ -21,10 +21,10 @@
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
                     <tr>
-                        <th>Name</th>
-                        <th>Price</th>
-                        <th>Quantity</th>
-                        <th class="text-right">Total</th>
+                        <th>商品名</th>
+                        <th>単価</th>
+                        <th>個数</th>
+                        <th class="text-right">合計金額</th>
                     </tr>
                     </thead>
                     <tbody>

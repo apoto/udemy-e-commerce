@@ -15,10 +15,10 @@
             </div>
             <?= $this->Form->create() ?>
               <div class="form-group">
-                <input name="username" class="form-control form-control-user" placeholder="Username">
+                <input name="username" class="form-control form-control-user" placeholder="ユーザーネーム">
               </div>
               <div class="form-group">
-                <input name="password" type="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Password">
+                <input name="password" type="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="パスワード">
               </div>
               <?= $this->Form->submit('ログイン', ['class' => 'btn btn-primary btn-user btn-block']) ?>
             <?= $this->Form->end() ?>
