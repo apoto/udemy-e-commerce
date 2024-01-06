@@ -29,7 +29,7 @@
                         
                             <?php foreach($orders as $order): ?>
                                 <tr>
-                                    <td class="align-middle"><?= $order->first_name ?></td>
+                                    <td class="align-middle"><?= $order->full_name ?></td>
                                     <td class="align-middle"><?= $order->created->format('Y/m/d') ?></td>
                                     <td class="text-right">
                                         <?= $this->Html->link('<i class = "fas fa-search"></i>', ['controller' => 'Orders', 'action' => 'view', $order->id], ['class' => 'btn btn-primary ', 'escape' => false]) ?>    

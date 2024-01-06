@@ -36,4 +36,9 @@ class Order extends Entity
         'modified' => true,
         'order_lines' => true,
     ];
+
+    protected function _getFullName()
+    {
+        return ucfirst($this->first_name) . ' ' . strtoupper($this->last_name);
+    }
 }
