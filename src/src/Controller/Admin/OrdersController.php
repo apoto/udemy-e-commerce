@@ -44,4 +44,28 @@ class OrdersController extends AppController
 
         $this->set(compact('order'));
     }
+
+    /**
+     * Export method
+     *
+     */
+    public function export()
+    {
+        $data = [
+            ['a', 'b', 'c'],
+            [1, 2, 3],
+            ['you', 'and', 'me'],
+        ];
+
+        $this->set(compact('data'));
+        $this->viewBuilder()
+            ->setClassName('CsvView.Csv')
+            ->setOptions([
+                'serialize' => 'data',
+                'delimiter' => ';',
+                'bom' => true,
+            ]);
+
+        $this->setResponse($this->getResponse()->withDownload('orders.csv'));
+    }
 }

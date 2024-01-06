@@ -3,6 +3,10 @@
         <div class="col">
             <h1 class="h3 mb-2 text-gray-800">Order</h1>
         </div>
+
+        <div class="col text-right">
+            <?= $this->Html->link('csv出力', ['action' => 'export'], ['class' => 'btn btn-success', 'escape' => false]) ?>
+        </div>
     </div>
     
 
