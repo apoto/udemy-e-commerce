@@ -33,4 +33,15 @@ class OrdersController extends AppController
 
         $this->set(compact('orders'));
     }
+
+    /**
+     * View method
+     *
+     */
+    public function view($idOrder)
+    {
+        $order = $this->Orders->get($idOrder, ['contain' => ['OrderLines.Products']]);
+
+        $this->set(compact('order'));
+    }
 }
