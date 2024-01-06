@@ -51,11 +51,22 @@ class OrdersController extends AppController
      */
     public function export()
     {
-        $data = [
-            ['a', 'b', 'c'],
-            [1, 2, 3],
-            ['you', 'and', 'me'],
-        ];
+        $orders = $this->Orders->find()->contain('OrderLines.Products');
+
+        $data = [['Name', 'Email', 'Total']];
+        foreach ($orders as $order){
+            $orderTable = [];
+            $orderTable[] = $order->full_name;
+            $orderTable[] = $order->email;
+
+            $total = 0;
+            foreach ($order->order_lines as $order_line){
+                $total += $order_line->product->price * $order_line->quantity;
+            }
+
+            $orderTable[] = $total;
+            $data[] = $orderTable;
+        }
 
         $this->set(compact('data'));
         $this->viewBuilder()
