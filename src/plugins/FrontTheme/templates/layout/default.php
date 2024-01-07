@@ -17,20 +17,18 @@
 		'FrontTheme./css/font-awesome.min',
 		'FrontTheme./css/themify-icons',
 		'FrontTheme./css/bootstrap',
-		'FrontTheme./css/owl.carousel',
+		'FrontTheme./css/owl.carousel.min',
 		'FrontTheme./css/nice-select',
 		'FrontTheme./css/nouislider.min',
 		'FrontTheme./css/rangeSlider',
 		'FrontTheme./css/rangeSlider.skinFlat',
 		'FrontTheme./css/magnific-popup',
 		'FrontTheme./css/main',
+		'FrontTheme./css/gmaps.min',
 	]); ?>
 </head>
 
 <body>
-
-<!-- Contents -->
-<?= $this->fetch('content'); ?>
 
 <!-- Menu -->
 <?= $this->Element('FrontTheme.layout/menu'); ?>
