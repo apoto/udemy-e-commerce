@@ -17,14 +17,13 @@
 		'FrontTheme./css/font-awesome.min',
 		'FrontTheme./css/themify-icons',
 		'FrontTheme./css/bootstrap',
-		'FrontTheme./css/owl.carousel.min',
+		'FrontTheme./css/owl.carousel',
 		'FrontTheme./css/nice-select',
 		'FrontTheme./css/nouislider.min',
 		'FrontTheme./css/rangeSlider',
 		'FrontTheme./css/rangeSlider.skinFlat',
 		'FrontTheme./css/magnific-popup',
 		'FrontTheme./css/main',
-		'FrontTheme./css/gmaps.min',
 	]); ?>
 </head>
 
@@ -40,14 +39,13 @@
 <?= $this->fetch('content'); ?>
 
 <!-- Footer -->
-<?= $this->Element('BackTheme.layout/footer'); ?>
+<?= $this->Element('FrontTheme.layout/footer'); ?>
 
 
 <!-- Scripts -->
 <?= $this->Html->script([
-	'FrontTheme./js/jquery-2.2.4.min.js',
+	'FrontTheme./js/vendor/jquery-2.2.4.min.js',
 	'https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js',
-	'FrontTheme./js/jquery.easing.min.min',
 	'FrontTheme./js/vendor/bootstrap.min',
 	'FrontTheme./js/jquery.ajaxchimp.min',
 	'FrontTheme./js/jquery.nice-select.min',
