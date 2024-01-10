@@ -31,18 +31,17 @@ use Cake\View\Exception\MissingTemplateException;
  */
 class PagesController extends AppController
 {
+    public function beforeFilter(\Cake\Event\EventInterface $event)
+    {
+        parent::beforeFilter($event);
+
+        $this->Authentication->addUnauthenticatedActions(['index']);
+    }
     /**
      * Home
      */
-    public function index() {
-        
-    }
-
-    /**
-     * Action
-     */
-    public function action($param) {
-        dd($param);
+    public function index()
+    {    
     }
     
 }
