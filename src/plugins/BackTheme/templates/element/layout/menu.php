@@ -25,6 +25,9 @@
 
     <?= $this->Html->link('<i class="fas fa fa-shopping-cart"></i> 商品', [
         'controller' => 'Products', 'action' => 'index'], ['class' => 'nav-link' ,'escape' => false]) ?>
+
+    <?= $this->Html->link('<i class="fas fa fa-user"></i> ログアウト', [
+        'controller' => 'Users', 'action' => 'logout'], ['class' => 'nav-link' ,'escape' => false]) ?>
   </li>
 
 </ul>
