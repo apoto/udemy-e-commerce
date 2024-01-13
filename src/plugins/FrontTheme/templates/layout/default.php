@@ -57,6 +57,7 @@
 	'https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE',
 	'FrontTheme./js/gmaps.min',
 	'FrontTheme./js/main',
+	'FrontTheme./js/custom',
 ]); ?>
 
 </body>

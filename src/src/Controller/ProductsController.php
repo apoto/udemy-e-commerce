@@ -31,7 +31,25 @@ class ProductsController extends AppController
         // 選択カテゴリーを含む商品一覧を取得
         $products = $this->Products->find()->where(['category_id' => $categoryId]);
 
-        $this->set(compact('category'));
+        // カラーを取得
+        $CharacteristicValues = $this->fetchTable('CharacteristicValues');
+        $colors = $CharacteristicValues->find(
+            'list', [
+                'keyField' => 'id',
+                'valueField' => 'name',
+        ])
+        ->where(['characteristic_id' => CHARACTERISTIC_COLOR_ID, 'deleted IS NULL']);
+
+        // サイズを取得
+        $sizes = $CharacteristicValues->find(
+            'list', [
+                'keyField' => 'id',
+                'valueField' => 'name',
+        ])
+        ->where(['characteristic_id' => CHARACTERISTIC_SIZE_ID, 'deleted IS NULL']);
+
+
+        $this->set(compact('category', 'colors', 'sizes'));
         $this->set(['products' => $this->paginate($products)]);
     }
 

@@ -18,7 +18,6 @@
 				<div class="sidebar-categories">
 					<div class="head">Categories</div>
 					<ul class="main-categories">
-
                         <?php
                         foreach ($categories as $idCategory => $category) { ?>
                         <li>
@@ -26,52 +25,25 @@
                         </li>
                         <?php
                         } ?>
-
 					</ul>
 				</div>
-				<div class="sidebar-filter mt-50">
-					<div class="top-filter-head">Product Filters</div>
-					<div class="common-filter">
-						<div class="head">Brands</div>
-						<form action="#">
-							<ul>
-								<li class="filter-list"><input class="pixel-radio" type="radio" id="apple" name="brand"><label for="apple">Apple<span>(29)</span></label></li>
-								<li class="filter-list"><input class="pixel-radio" type="radio" id="asus" name="brand"><label for="asus">Asus<span>(29)</span></label></li>
-								<li class="filter-list"><input class="pixel-radio" type="radio" id="gionee" name="brand"><label for="gionee">Gionee<span>(19)</span></label></li>
-								<li class="filter-list"><input class="pixel-radio" type="radio" id="micromax" name="brand"><label for="micromax">Micromax<span>(19)</span></label></li>
-								<li class="filter-list"><input class="pixel-radio" type="radio" id="samsung" name="brand"><label for="samsung">Samsung<span>(19)</span></label></li>
-							</ul>
-						</form>
-					</div>
-					<div class="common-filter">
-						<div class="head">Color</div>
-						<form action="#">
-							<ul>
-								<li class="filter-list"><input class="pixel-radio" type="radio" id="black" name="color"><label for="black">Black<span>(29)</span></label></li>
-								<li class="filter-list"><input class="pixel-radio" type="radio" id="balckleather" name="color"><label for="balckleather">Black
-										Leather<span>(29)</span></label></li>
-								<li class="filter-list"><input class="pixel-radio" type="radio" id="blackred" name="color"><label for="blackred">Black
-										with red<span>(19)</span></label></li>
-								<li class="filter-list"><input class="pixel-radio" type="radio" id="gold" name="color"><label for="gold">Gold<span>(19)</span></label></li>
-								<li class="filter-list"><input class="pixel-radio" type="radio" id="spacegrey" name="color"><label for="spacegrey">Spacegrey<span>(19)</span></label></li>
-							</ul>
-						</form>
-					</div>
-					<div class="common-filter">
-						<div class="head">Price</div>
-						<div class="price-range-area">
-							<div id="price-range"></div>
-							<div class="value-wrapper d-flex">
-								<div class="price">Price:</div>
-								<span>$</span>
-								<div id="lower-value"></div>
-								<div class="to">to</div>
-								<span>$</span>
-								<div id="upper-value"></div>
-							</div>
-						</div>
-					</div>
-				</div>
+
+                <?= $this->Form->create(null, ['type' => 'get', 'class' => 'submitOnChange']) ?>
+                    <div class="sidebar-filter mt-50">
+                        <div class="top-filter-head">フィルター</div>
+                        <div class="common-filter border-0 pb-5">
+                            <div class="head">サイズ</div>
+                            <?= $this->Form->select('filter_size', $sizes, ['label' => false, 'empty' => '選択してください']) ?>
+                        </div>
+
+                        <hr />
+
+                        <div class="common-filter border-0">
+                            <div class="head">カラー</div>
+                            <?= $this->Form->select('filter_color', $colors, ['label' => false, 'empty' => '選択してください']) ?>
+                        </div>
+                    </div>
+                <?= $this->Form->end() ?>
 			</div>
 			<div class="col-xl-9 col-lg-8 col-md-7">
 				<!-- Start Filter Bar -->
