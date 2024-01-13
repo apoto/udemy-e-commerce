@@ -25,8 +25,13 @@ class ProductsController extends AppController
      */
     public function index($categoryId)
     {
+        // カテゴリーを取得
+        $category = $this->Products->Categories->get($categoryId);
+
+        // 選択カテゴリーを含む商品一覧を取得
         $products = $this->Products->find()->where(['category_id' => $categoryId]);
 
+        $this->set(compact('category'));
         $this->set(['products' => $this->paginate($products)]);
     }
 
