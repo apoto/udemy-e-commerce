@@ -31,6 +31,22 @@ class ProductsController extends AppController
         // 選択カテゴリーを含む商品一覧を取得
         $products = $this->Products->find()->where(['category_id' => $categoryId]);
 
+        // フィルター選択中であれば、サイズをフィルタリングする
+        $filter_size = $this->getRequest()->getQuery('filter_size');
+        if (!empty($filter_size)) {
+            $products->innerJoinWith('CharacteristicValuesProducts', function($q) use($filter_size) {
+                return $q->where(['characteristic_value_id' => $filter_size]);
+            });
+        }
+
+        // フィルター選択中であれば、カラーをフィルタリングする
+        $filter_color = $this->getRequest()->getQuery('filter_color');
+        if (!empty($filter_color)) {
+            $products->innerJoinWith('CharacteristicValuesProducts', function($q) use($filter_color) {
+                return $q->where(['characteristic_value_id' => $filter_color]);
+            });
+        }
+
         // カラーを取得
         $CharacteristicValues = $this->fetchTable('CharacteristicValues');
         $colors = $CharacteristicValues->find(
@@ -47,7 +63,6 @@ class ProductsController extends AppController
                 'valueField' => 'name',
         ])
         ->where(['characteristic_id' => CHARACTERISTIC_SIZE_ID, 'deleted IS NULL']);
-
 
         $this->set(compact('category', 'colors', 'sizes'));
         $this->set(['products' => $this->paginate($products)]);
