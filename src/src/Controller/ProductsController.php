@@ -15,7 +15,7 @@ class ProductsController extends AppController
     {
         parent::beforeFilter($event);
 
-        $this->Authentication->addUnauthenticatedActions(['index']);
+        $this->Authentication->addUnauthenticatedActions(['index', 'view']);
     }
 
     /**
@@ -29,7 +29,7 @@ class ProductsController extends AppController
         $category = $this->Products->Categories->get($categoryId);
 
         // 選択カテゴリーを含む商品一覧を取得
-        $products = $this->Products->find()->where(['category_id' => $categoryId]);
+        $products = $this->Products->find()->contain(['Photos'])->where(['category_id' => $categoryId]);
 
         // フィルター選択中であれば、サイズをフィルタリングする
         $filter_size = $this->getRequest()->getQuery('filter_size');
