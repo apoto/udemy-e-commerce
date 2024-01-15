@@ -75,10 +75,10 @@ class ProductsController extends AppController
      * @return \Cake\Http\Response|null|void Renders view
      * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
      */
-    public function view($id = null)
+    public function view($id)
     {
         $product = $this->Products->get($id, [
-            'contain' => ['Categories', 'CharacteristicValues', 'Photos', 'OrderLines'],
+            'contain' => ['Categories', 'CharacteristicValues.Characteristics', 'Photos'],
         ]);
 
         $this->set(compact('product'));
