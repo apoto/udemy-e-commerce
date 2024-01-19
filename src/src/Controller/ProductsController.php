@@ -15,7 +15,7 @@ class ProductsController extends AppController
     {
         parent::beforeFilter($event);
 
-        $this->Authentication->addUnauthenticatedActions(['index', 'view']);
+        $this->Authentication->addUnauthenticatedActions(['index', 'view', 'addCart']);
     }
 
     /**
@@ -82,5 +82,15 @@ class ProductsController extends AppController
         ]);
 
         $this->set(compact('product'));
+    }
+
+    /**
+     * AddCart method
+     */
+    public function addCart() {
+        $cart = $this->getRequest()->getSession()->read('cart');
+        $cart[] = $this->getRequest()->getData();
+        $this->getRequest()->getSession()->write('cart', $cart);
+        return $this->redirect('/');
     }
 }
