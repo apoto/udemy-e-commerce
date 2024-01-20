@@ -24,7 +24,22 @@ class OrdersController extends AppController
      */
     public function checkout()
     {
-        
+        $this->loadModel('Products');
+        $order = $this->Orders->newEmptyEntity();
+
+        if($this->getRequest()->is('post')) {
+            
+        }
+        $listProducts = [];
+        foreach($this->getRequest()->getSession()->read('cart') as $product) {
+            $listProducts[] = [
+                'product' => $this->Products->get($product['product_id']),
+                'quantity' => $product['quantity']
+            ];
+        }
+
+        $this->set(compact('order', 'listProducts'));
+        //dd($listProducts);
     }
 
 }
