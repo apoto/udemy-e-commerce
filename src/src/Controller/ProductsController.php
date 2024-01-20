@@ -91,6 +91,6 @@ class ProductsController extends AppController
         $cart = $this->getRequest()->getSession()->read('cart');
         $cart[] = $this->getRequest()->getData();
         $this->getRequest()->getSession()->write('cart', $cart);
-        return $this->redirect('/');
+        return $this->redirect(['controller' => 'Orders', 'action' => 'checkout']);
     }
 }
