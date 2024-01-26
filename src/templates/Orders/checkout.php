@@ -22,12 +22,12 @@
                                     <span class="placeholder" data-placeholder="苗字"></span>
                                 </div>
                                 <div class="col-md-6 form-group">
-                                    <label for="last_name">名前</label>
+                                    <label for="first_name">名前</label>
                                     <?= $this->Form->input('first_name', ['class' => 'form-control']) ?>
                                     <span class="placeholder" data-placeholder="名前"></span>
                                 </div>
                                 <div class="col-md-6 form-group">
-                                    <label for="last_name">メールアドレス</label>
+                                    <label for="email">メールアドレス</label>
                                     <?= $this->Form->input('email', ['class' => 'form-control']) ?>
                                     <span class="placeholder" data-placeholder="メールアドレス"></span>
                                 </div>

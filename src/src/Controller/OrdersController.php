@@ -15,7 +15,7 @@ class OrdersController extends AppController
     {
         parent::beforeFilter($event);
 
-        $this->Authentication->addUnauthenticatedActions(['checkout']);
+        $this->Authentication->addUnauthenticatedActions(['checkout', 'confirmation']);
     }
 
     /**
@@ -24,22 +24,52 @@ class OrdersController extends AppController
      */
     public function checkout()
     {
-        $this->loadModel('Products');
-        $order = $this->Orders->newEmptyEntity();
-
-        if($this->getRequest()->is('post')) {
-            
-        }
+        $ProductsTable = $this->fetchTable('Products');
         $listProducts = [];
         foreach($this->getRequest()->getSession()->read('cart') as $product) {
             $listProducts[] = [
-                'product' => $this->Products->get($product['product_id']),
+                'product' => $ProductsTable->get($product['product_id']),
                 'quantity' => $product['quantity']
             ];
         }
 
+        $order = $this->Orders->newEmptyEntity();
+
+        if($this->getRequest()->is('post')) {
+            $datas = $this->getRequest()->getData();
+            $datas['order_lines'] = [];
+            foreach($this->getRequest()->getSession()->read('cart') as $product) {
+                $datas['order_lines'][] = [
+                    'product_id' => $product['product_id'],
+                    'quantity' => $product['quantity']
+                ];
+            }
+
+            $order = $this->Orders->patchEntity(
+                $order,
+                $datas,
+                ['associated' => ['OrderLines']]
+            );
+            
+            //dd($order);
+            if($this->Orders->save($order)) {
+                $this->Flash->success(__('成功'));
+                return $this->redirect(['action' => 'confirmation']);
+            } else {
+                $this->Flash->error('エラー: ' . json_encode($order->getErrors()));
+            }
+        }
+        
+
         $this->set(compact('order', 'listProducts'));
-        //dd($listProducts);
+    }
+
+    /**
+     * Confirmation method
+     *
+     */
+    public function confirmation() {
+
     }
 
 }
