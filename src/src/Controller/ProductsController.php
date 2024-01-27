@@ -102,7 +102,7 @@ class ProductsController extends AppController
         return $this->redirect(['controller' => 'Orders', 'action' => 'checkout']);
     }
 
-     /**
+    /**
      * DeleteCart method
      */
     public function deleteCart($productId) {
