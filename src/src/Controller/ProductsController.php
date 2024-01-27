@@ -15,7 +15,7 @@ class ProductsController extends AppController
     {
         parent::beforeFilter($event);
 
-        $this->Authentication->addUnauthenticatedActions(['index', 'view', 'addCart']);
+        $this->Authentication->addUnauthenticatedActions(['index', 'view', 'addCart', 'deleteCart']);
     }
 
     /**
@@ -99,6 +99,15 @@ class ProductsController extends AppController
 
         $cart[$productId] = $quantity;
         $this->getRequest()->getSession()->write('cart', $cart);
+        return $this->redirect(['controller' => 'Orders', 'action' => 'checkout']);
+    }
+
+     /**
+     * DeleteCart method
+     */
+    public function deleteCart($productId) {
+        
+        $this->getRequest()->getSession()->delete('cart.' . $productId);
         return $this->redirect(['controller' => 'Orders', 'action' => 'checkout']);
     }
 }

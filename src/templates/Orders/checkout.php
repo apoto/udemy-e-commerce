@@ -45,7 +45,11 @@
                                 foreach($listProducts as $product) {
                                     $total += $product['product']['price'] * $product['quantity']
                                     ?>
-                                    <li><a href="#"><?= $product['product']['name'] ?> <span class="middle">x  <?= $product['quantity'] ?></span> <span class="last"><?= $product['product']['price'] * $product['quantity'] ?></span></a></li>
+                                    <li>
+                                        <?= $this->Html->link('<i class="fa fa-times text-danger"></i>', ['controller' => 'Products', 'action' => 'deleteCart', $product['product']['id']], ['escape' => false, 'style' => 'display: inline;']) ?>
+                                        <a href="#" style="display: inline;">
+                                            <?= $product['product']['name'] ?> <span class="middle">x  <?= $product['quantity'] ?></span> <span class="last"><?= $product['product']['price'] * $product['quantity'] ?></span></a>
+                                    </li>
                                 <?php
                                 } ?>
                             </ul>
