@@ -25,11 +25,11 @@ class OrdersController extends AppController
     public function checkout()
     {
         $ProductsTable = $this->fetchTable('Products');
-        $listProducts = [];
-        foreach($this->getRequest()->getSession()->read('cart') as $product) {
+        $listProducts = []; 
+        foreach($this->getRequest()->getSession()->read('cart') as $productId => $quantity) {
             $listProducts[] = [
-                'product' => $ProductsTable->get($product['product_id']),
-                'quantity' => $product['quantity']
+                'product' => $ProductsTable->get($productId),
+                'quantity' => $quantity
             ];
         }
 
@@ -38,10 +38,10 @@ class OrdersController extends AppController
         if($this->getRequest()->is('post')) {
             $datas = $this->getRequest()->getData();
             $datas['order_lines'] = [];
-            foreach($this->getRequest()->getSession()->read('cart') as $product) {
+            foreach($this->getRequest()->getSession()->read('cart') as $productId => $quantity) {
                 $datas['order_lines'][] = [
-                    'product_id' => $product['product_id'],
-                    'quantity' => $product['quantity']
+                    'product_id' => $productId,
+                    'quantity' => $quantity
                 ];
             }
 
@@ -51,16 +51,14 @@ class OrdersController extends AppController
                 ['associated' => ['OrderLines']]
             );
             
-            //dd($order);
             if($this->Orders->save($order)) {
-                $this->Flash->success(__('成功'));
+                $this->Flash->success(__('ご購入ありがとうございます！'));
                 return $this->redirect(['action' => 'confirmation']);
             } else {
                 $this->Flash->error('エラー: ' . json_encode($order->getErrors()));
             }
         }
         
-
         $this->set(compact('order', 'listProducts'));
     }
 

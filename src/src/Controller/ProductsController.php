@@ -89,7 +89,15 @@ class ProductsController extends AppController
      */
     public function addCart() {
         $cart = $this->getRequest()->getSession()->read('cart');
-        $cart[] = $this->getRequest()->getData();
+        $productId = (int)$this->getRequest()->getData('product_id');
+        $quantity = (int)$this->getRequest()->getData('quantity');
+
+        // 商品が既にカートにある場合、数量を追加する
+        if($this->getRequest()->getSession()->check('cart.' . $productId)) {
+            $quantity += $this->getRequest()->getSession()->read('cart.' . $productId);
+        }
+
+        $cart[$productId] = $quantity;
         $this->getRequest()->getSession()->write('cart', $cart);
         return $this->redirect(['controller' => 'Orders', 'action' => 'checkout']);
     }
