@@ -3,6 +3,8 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
+use Cake\Mailer\Mailer;
+
 /**
  * Orders Controller
  *
@@ -54,7 +56,24 @@ class OrdersController extends AppController
             );
             
             if($this->Orders->save($order)) {
-                $this->Flash->success(__('ご購入ありがとうございます！'));
+                // 商品情報を取得
+                $order = $this->Orders->get($order->id, ['contain' => ['OrderLines.Products']]);
+                
+                // カートのセッション情報を削除
+                $this->getRequest()->getSession()->delete('cart');
+
+                // Eメールを送信
+                $mailer = new Mailer();
+                $mailer
+                    ->setEmailFormat('html')
+                    ->setTo($order->email)
+                    ->setSubject('注文確認メール')
+                    ->setFrom('contact@smartphone-store-exapmle.jp')
+                    ->setViewVars(compact('order'))
+                    ->viewBuilder()
+                        ->setTemplate('confirmation_order');
+                $mailer->deliver();
+
                 return $this->redirect(['action' => 'confirmation']);
             } else {
                 $this->Flash->error('エラー: ' . json_encode($order->getErrors()));
@@ -71,5 +90,4 @@ class OrdersController extends AppController
     public function confirmation() {
 
     }
-
 }

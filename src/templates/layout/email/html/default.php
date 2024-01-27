@@ -1,25 +1,83 @@
-<?php
-/**
- * CakePHP(tm) : Rapid Development Framework (https://cakephp.org)
- * Copyright (c) Cake Software Foundation, Inc. (https://cakefoundation.org)
- *
- * Licensed under The MIT License
- * For full copyright and license information, please see the LICENSE.txt
- * Redistributions of files must retain the above copyright notice.
- *
- * @copyright     Copyright (c) Cake Software Foundation, Inc. (https://cakefoundation.org)
- * @link          https://cakephp.org CakePHP(tm) Project
- * @since         0.10.0
- * @license       https://opensource.org/licenses/mit-license.php MIT License
- * @var \App\View\AppView $this
- */
-?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
-<html>
-<head>
-    <title><?= $this->fetch('title') ?></title>
-</head>
-<body>
-    <?= $this->fetch('content') ?>
-</body>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=device-width"/>
+
+        <style type="text/css">
+            /* メールテンプレートの基本スタイル */
+            * { margin: 0; padding: 0; font-size: 100%; font-family: 'Avenir Next', "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif; line-height: 1.65; }
+            img { max-width: 100%; margin: 0 auto; display: block; }
+            body, .body-wrap { width: 100% !important; height: 100%; background: #f8f8f8; }
+            a { color: #43aaf5; text-decoration: none; }
+            a:hover { text-decoration: underline; }
+            .text-center { text-align: center; }
+            .text-right { text-align: right; }
+            .text-left { text-align: left; }
+            .button { display: inline-block; color: white; background: #43aaf5; border: solid #43aaf5; border-width: 10px 20px 8px; font-weight: bold; border-radius: 4px; }
+            .button:hover { text-decoration: none; }
+            h1, h2, h3, h4, h5, h6 { margin-bottom: 20px; line-height: 1.25; }
+            h1 { font-size: 32px; }
+            h2 { font-size: 28px; }
+            h3 { font-size: 24px; }
+            h4 { font-size: 20px; }
+            h5 { font-size: 16px; }
+            p, ul, ol { font-size: 16px; font-weight: normal; margin-bottom: 20px; }
+            .container { display: block !important; clear: both !important; margin: 0 auto !important; max-width: 580px !important; }
+            .container table { width: 100% !important; border-collapse: collapse; }
+            .container .masthead { padding: 40px 0; background: #43aaf5; color: white; }
+            .container .masthead h1 { margin: 0 auto !important; max-width: 90%; text-transform: uppercase; }
+            .container .content { background: white; padding: 30px 35px; }
+            .container .content .partie { margin-bottom: 20px; }
+            .container .content .partie td { padding: 20px; background: #f8f8f8; }
+            .container .content.footer { background: none; }
+            .container .content.footer p { margin-bottom: 0; color: #888; text-align: center; font-size: 14px; }
+            .container .content.footer a { color: #888; text-decoration: none; font-weight: bold; }
+            .container .content.footer a:hover { text-decoration: underline; }
+        </style>
+    </head>
+    <body>
+        <table class="body-wrap">
+            <tr>
+                <td class="container">
+
+                    <!-- メッセージ開始 -->
+                    <table>
+                        <tr>
+                            <td align="center" class="masthead">
+
+                            <h1><img src="https://logolook.net/wp-content/uploads/2021/06/Apple-Logo.svg" alt="Logo" /></h1>
+
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="content">
+
+                                <!-- Contents -->
+                                <?= $this->fetch('content'); ?>
+
+                            </td>
+                        </tr>
+                    </table>
+
+                </td>
+            </tr>
+            <tr>
+                <td class="container">
+
+                    <!-- メッセージ開始 -->
+                    <table>
+                        <tr>
+                            <td class="content footer" align="center">
+                                <p><a href="http://smartphone-store.com" target="_blank">Smartphone Store</a>より送信されました。住所：72bis allée des flots, 75000 Paris</p>
+                                <p><a href="mailto:contact@smartphone-store.com">contact@smartphone-store.com</a></p>
+                            </td>
+                        </tr>
+                    </table>
+
+                </td>
+            </tr>
+        </table>
+    </body>
 </html>
