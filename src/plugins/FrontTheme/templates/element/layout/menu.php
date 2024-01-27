@@ -28,8 +28,10 @@
 							</li>
 							<?php
 							} ?>
-
-							<li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+					
+							<li class="nav-item">
+								<?= $this->Html->link('カート', ['controller' => 'Orders', 'action' => 'checkout'], ['class' => 'nav-link']) ?>
+							<li class="nav-item">
 						</ul>
 					</div>
 				</div>
