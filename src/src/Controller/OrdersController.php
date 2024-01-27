@@ -26,11 +26,13 @@ class OrdersController extends AppController
     {
         $ProductsTable = $this->fetchTable('Products');
         $listProducts = []; 
-        foreach($this->getRequest()->getSession()->read('cart') as $productId => $quantity) {
-            $listProducts[] = [
-                'product' => $ProductsTable->get($productId),
-                'quantity' => $quantity
-            ];
+        if(!empty($this->getRequest()->getSession()->read('cart'))){
+            foreach($this->getRequest()->getSession()->read('cart') as $productId => $quantity) {
+                $listProducts[] = [
+                    'product' => $ProductsTable->get($productId),
+                    'quantity' => $quantity
+                ];
+            }
         }
 
         $order = $this->Orders->newEmptyEntity();
